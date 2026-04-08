@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공문 작성 폼</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel form-panel">
+        <h1>공문 작성 온라인 폼</h1>
+
+        <div class="grid">
+          <label>수신자<input id="recipient" value="한국대학교사회봉사협의회" /></label>
+          <label>일자<input id="docDate" type="date" value="2024-06-05" /></label>
+          <label>경유<input id="via" placeholder="(선택)" /></label>
+          <label class="full">제목<input id="subject" value="제46기 월드프렌즈코리아(WFK) 청년봉사단 라오스팀 활동기관 변경 건" /></label>
+          <label class="full">인사말<textarea id="intro">귀 기관의 무한한 발전을 기원합니다.</textarea></label>
+          <label class="full">본문 2<textarea id="body2">밀크포라오는 라오스 아동의 건강한 영양 섭취를 위한 영양 개선 프로그램과 기초 낙농 산업 발전을 위한 다양한 서비스를 제공하기 위해 설립된 서울시, 라오스 농림부 산하 민간단체입니다.</textarea></label>
+          <label class="full">본문 3<textarea id="body3">본 민간단체는 ‘제46기 월드프렌즈코리아(WFK) 청년봉사단 프로그램’의 진행과 관련하여 봉사활동 기관의 변경사항에 대한 양해를 부탁드립니다.</textarea></label>
+
+          <label>기존활동기관<input id="oldOrg" value="라오스 비엔티안 농맘끼아 초등학교" /></label>
+          <label>변경활동기관<input id="newOrg" value="라오스 비엔티안 팍산마이 초등학교" /></label>
+          <label class="full">변경사유<textarea id="reason">최근 팍산마이 초등학교에 대한 봉사단 파견 횟수가 감소하여, 라오스 교육부에서 봉사단 파견 및 교육에 대한 수요를 제기하였음. 이에 따라, 요청 및 수요를 반영하여 활동 기관을 변경하게 됨.</textarea></label>
+
+          <label>기관명<input id="orgName" value="밀크포라오" /></label>
+          <label>대표자명<input id="ceo" value="이재원" /></label>
+          <label>시행번호<input id="docNo" value="대외협력팀 2024-008" /></label>
+          <label>담당자<input id="manager" value="이재원 대표" /></label>
+          <label>이메일<input id="email" value="milkforlao@gmail.com" /></label>
+          <label>전화<input id="phone" value="010-6801-6844" /></label>
+          <label class="full">주소<input id="address" value="서울시 동작구 흑용로 38(상도동 B1 7-21호)" /></label>
+        </div>
+
+        <div class="actions">
+          <button id="fillSampleBtn" type="button" class="secondary">샘플 채우기</button>
+          <button id="clearBtn" type="button" class="secondary">전체 비우기</button>
+          <button id="printBtn" type="button">인쇄 / PDF 저장</button>
+        </div>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="paper" id="paper">
+          <header class="doc-header">
+            <div class="logo">MILK<br /><small>For Lao</small></div>
+            <div class="meta-lines">
+              <p><strong>수신자:</strong> <span data-bind="recipient"></span></p>
+              <p><strong>일&nbsp;&nbsp;&nbsp;자:</strong> <span data-bind="docDate"></span></p>
+              <p><strong>(경유)</strong> <span data-bind="via"></span></p>
+              <p><strong>제목:</strong> <span data-bind="subject"></span></p>
+            </div>
+          </header>
+
+          <hr />
+
+          <article class="doc-body">
+            <p>1. <span data-bind="intro"></span></p>
+            <p>2. <span data-bind="body2"></span></p>
+            <p>3. <span data-bind="body3"></span></p>
+
+            <h2>― 변경사항 ―</h2>
+            <ul>
+              <li><strong>기존활동기관 :</strong> <span data-bind="oldOrg"></span></li>
+              <li><strong>변경활동기관 :</strong> <span data-bind="newOrg"></span></li>
+              <li><strong>변경사유 :</strong> <span data-bind="reason"></span></li>
+            </ul>
+
+            <p>끝.</p>
+          </article>
+
+          <footer class="doc-footer">
+            <p class="sign"><span data-bind="orgName"></span> 대표 <span data-bind="ceo"></span></p>
+            <div class="stamp">직인</div>
+            <hr />
+            <p>
+              <strong>시행:</strong> <span data-bind="docNo"></span>
+              &nbsp;/&nbsp;
+              <strong>담당자:</strong> <span data-bind="manager"></span>
+              &nbsp;/&nbsp;
+              <a href="#" id="mailLink" data-bind="email"></a>
+            </p>
+            <p>
+              <span data-bind="address"></span>
+              &nbsp;/&nbsp;
+              <strong>Tel.</strong> <span data-bind="phone"></span>
+            </p>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
