@@ -71,6 +71,9 @@ textarea {
 
 .actions {
   margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 button {
@@ -80,6 +83,11 @@ button {
   padding: 10px 12px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+button.secondary {
+  background: #fff;
+  color: #111;
 }
 
 .preview-panel {

@@ -26,6 +26,21 @@ function formatDate(value) {
   return `${y}.${m}.${d}`;
 }
 
+function setFormValues(values) {
+  for (const id of fieldIds) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    el.value = values[id] ?? "";
+  }
+  render();
+}
+
+function clearForm() {
+  const empty = {};
+  for (const id of fieldIds) empty[id] = "";
+  setFormValues(empty);
+}
+
 function render() {
   for (const id of fieldIds) {
     const value = id === "docDate" ? formatDate(read(id)) : read(id);
@@ -44,6 +59,12 @@ fieldIds.forEach((id) => {
   const el = document.getElementById(id);
   el?.addEventListener("input", render);
 });
+
+document.getElementById("fillSampleBtn")?.addEventListener("click", () => {
+  setFormValues(sampleData);
+});
+
+document.getElementById("clearBtn")?.addEventListener("click", clearForm);
 
 document.getElementById("printBtn")?.addEventListener("click", () => {
   window.print();
