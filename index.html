@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공문 작성 폼</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel form-panel">
+        <h1>공문 작성 온라인 폼</h1>
+
+        <div class="grid">
+          <label>수신자<input id="recipient" /></label>
+          <label>일자<input id="docDate" type="date" /></label>
+          <label>경유<input id="via" placeholder="(선택)" /></label>
+          <label class="full">제목<input id="subject" /></label>
+          <label class="full">인사말<textarea id="intro"></textarea></label>
+          <label class="full">본문 2<textarea id="body2"></textarea></label>
+          <label class="full">본문 3<textarea id="body3"></textarea></label>
+
+          <label>기존활동기관<input id="oldOrg" /></label>
+          <label>변경활동기관<input id="newOrg" /></label>
+          <label class="full">변경사유<textarea id="reason"></textarea></label>
+
+          <label>기관명<input id="orgName" /></label>
+          <label>대표자명<input id="ceo" /></label>
+          <label>시행번호<input id="docNo" /></label>
+          <label>담당자<input id="manager" /></label>
+          <label>이메일<input id="email" /></label>
+          <label>전화<input id="phone" /></label>
+          <label class="full">주소<input id="address" /></label>
+        </div>
+
+        <div class="actions">
+          <button id="printBtn" type="button">인쇄 / PDF 저장</button>
+        </div>
+      </section>
+
+      <section class="panel preview-panel">
+        <div class="paper" id="paper">
+          <header class="doc-header">
+            <div class="logo">MILK<br /><small>For Lao</small></div>
+            <div class="meta-lines">
+              <p><strong>수신자:</strong> <span data-bind="recipient"></span></p>
+              <p><strong>일&nbsp;&nbsp;&nbsp;자:</strong> <span data-bind="docDate"></span></p>
+              <p><strong>(경유)</strong> <span data-bind="via"></span></p>
+              <p><strong>제목:</strong> <span data-bind="subject"></span></p>
+            </div>
+          </header>
+
+          <hr />
+
+          <article class="doc-body">
+            <p>1. <span data-bind="intro"></span></p>
+            <p>2. <span data-bind="body2"></span></p>
+            <p>3. <span data-bind="body3"></span></p>
+
+            <h2>― 변경사항 ―</h2>
+            <ul>
+              <li><strong>기존활동기관 :</strong> <span data-bind="oldOrg"></span></li>
+              <li><strong>변경활동기관 :</strong> <span data-bind="newOrg"></span></li>
+              <li><strong>변경사유 :</strong> <span data-bind="reason"></span></li>
+            </ul>
+
+            <p>끝.</p>
+          </article>
+
+          <footer class="doc-footer">
+            <p class="sign"><span class="org-name" data-bind="orgName"></span> 대표 <span data-bind="ceo"></span></p>
+            <div class="stamp">직인</div>
+            <hr />
+            <p>
+              <strong>시행:</strong> <span data-bind="docNo"></span>
+              &nbsp;/&nbsp;
+              <strong>담당자:</strong> <span data-bind="manager"></span>
+              &nbsp;/&nbsp;
+              <a href="#" id="mailLink" data-bind="email"></a>
+            </p>
+            <p>
+              <span data-bind="address"></span>
+              &nbsp;/&nbsp;
+              <strong>Tel.</strong> <span data-bind="phone"></span>
+            </p>
+          </footer>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

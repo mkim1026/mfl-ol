@@ -1,0 +1,230 @@
+:root {
+  --bg: #f3f3f3;
+  --line: #222;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Serif KR", "Batang", serif;
+  background: var(--bg);
+  color: #111;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: minmax(320px, 480px) minmax(720px, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  gap: 6px;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+}
+
+textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.actions {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+button {
+  border: 1px solid #111;
+  background: #111;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.preview-panel {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.paper {
+  width: 840px;
+  min-height: 1188px;
+  border: 1px solid #999;
+  padding: 48px 56px;
+  position: relative;
+  background: #fff;
+}
+
+.logo {
+  width: 82px;
+  height: 82px;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-weight: 700;
+  color: #3f88c5;
+  line-height: 1.1;
+}
+
+.logo small {
+  color: #666;
+  font-size: 0.7rem;
+}
+
+.doc-header {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  align-items: end;
+  gap: 18px;
+}
+
+.meta-lines p,
+.doc-body p,
+.doc-footer p,
+li {
+  margin: 0.35rem 0;
+  line-height: 1.7;
+  font-size: 11pt;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 10px 0 22px;
+}
+
+.doc-body {
+  margin-top: 10px;
+}
+
+.doc-body h2 {
+  text-align: center;
+  margin: 52px 0 20px;
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+
+.doc-body ul {
+  padding-left: 20px;
+}
+
+.doc-footer {
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  bottom: 36px;
+}
+
+.sign {
+  text-align: center;
+  margin: 70px 0 20px;
+  font-size: 11pt;
+}
+
+.sign .org-name {
+  font-size: 18pt;
+}
+
+.stamp {
+  position: absolute;
+  right: 110px;
+  top: -22px;
+  width: 98px;
+  height: 98px;
+  border: 4px solid #df3b5b;
+  color: #df3b5b;
+  display: grid;
+  place-items: center;
+  transform: rotate(-4deg);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+#mailLink {
+  color: #0d4ec6;
+}
+
+@media (max-width: 1280px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .paper {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .form-panel {
+    display: none;
+  }
+
+  .app {
+    display: block;
+    padding: 0;
+  }
+
+  .panel {
+    border: none;
+    padding: 0;
+  }
+
+  .paper {
+    border: none;
+    width: auto;
+    min-height: auto;
+    padding: 20mm 18mm;
+  }
+}
